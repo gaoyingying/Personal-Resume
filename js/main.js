@@ -19,13 +19,14 @@ $(function () {
 
 try{
   xhr.open("get","../data/data.json",true);
-  xhr.send(null);
+  xhr.send();
 }catch(err){
   console.log(err);
 }
 
-el.innerHTML= "当前HTTP状态为:"+xhr.status+";内容为"+xhr.responseText;
-if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ){
+
+if( xhr.status = 200 && xhr.readyState==4){
+    el.innerHTML= xhr.responseText;
   alert("请求成功");
 }else{
   alert("请求失败");
