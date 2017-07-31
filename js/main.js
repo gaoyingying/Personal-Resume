@@ -15,18 +15,21 @@ $(function () {
 
 
     })
-    var xml=new XMLHttpRequest();
-    try{
-    xml.open("get","../data/data.json",true);
-    xml.send();
-    }catch(err){
-    console.log(err);
-    }
-    xml.onreadystatechange=function(){
-        if(xml.readyState==4&&xml.status==200){
-            $("#show-something").html(xml.responseText);
-        }
-    }
+   var xhr = new XMLHttpRequest(),el = document.getElementById("show-something");
+
+try{
+  xhr.open("get","../data/data.json",true);
+  xhr.send(null);
+}catch(err){
+  console.log(err);
+}
+
+el.innerHTML= "当前HTTP状态为:"+xhr.status+";内容为"+xhr.responseText;
+if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ){
+  alert("请求成功");
+}else{
+  alert("请求失败");
+}
 })
 $(window).resize(function () {
 
