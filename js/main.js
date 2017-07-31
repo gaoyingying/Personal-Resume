@@ -26,7 +26,8 @@ try{
 
 xhr.onreadystatechange=function(){
 if( xhr.status = 200 && xhr.readyState==4){
-    el.innerHTML= "my name is :"+xhr.responseText.name+"and the age is :"+xhr.responseText.age;
+    var jsondata=Json.parse(xhr.responseText);
+    el.innerHTML= "my name is :"+jsondata.name+"and the age is :"+jsondata.age;
 }
 }
 
