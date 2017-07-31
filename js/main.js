@@ -15,6 +15,14 @@ $(function () {
 
 
     })
+    var xml=new XMLHttpRequest();
+    xml.open("GET","../data/data.json",false);
+    xml.send();
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4&&xml.status==200){
+            $("#show-something").innerHTML=xml.responseText;
+        }
+    }
 })
 $(window).resize(function () {
 
