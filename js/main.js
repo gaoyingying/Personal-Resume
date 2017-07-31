@@ -26,10 +26,7 @@ try{
 
 xhr.onreadystatechange=function(){
 if( xhr.status = 200 && xhr.readyState==4){
-    el.innerHTML= xhr.responseText;
-  alert("请求成功");
-}else{
-  alert("请求失败");
+    el.innerHTML= "my name is :"+xhr.responseText.name+"and the age is :"+xhr.responseText.age;
 }
 }
 
